@@ -58,36 +58,10 @@ def save_mandelbrot_image(xmin, xmax, ymin, ymax, width, height, max_iter, name)
     
     print(f"Image saved as {filename}")
 
-def save_mandelbrot_image_1(xmin, xmax, ymin, ymax, width, height, max_iter):
-    mandelbrot_image = mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)
-    
-    # Create the plot
-    fig, ax = plt.subplots(figsize=(10, 10))
-    cax = ax.imshow(mandelbrot_image, cmap='twilight_shifted', extent=[xmin, xmax, ymin, ymax], origin = 'upper')
-    fig.colorbar(cax)
-    ax.set_title("Full Mandelbrot Set")
-
-    # Save the figure
-    filename = (f"mandelbrot_xmin{xmin}_xmax{xmax}_ymin{ymin}_ymax{ymax}.svg"
-                .replace('.', '_')  # Replace periods to avoid issues in filenames
-                .replace('-', 'm')  # Replace minus signs for clarity
-                .replace(' ', '_')) # Replace spaces with underscores
-
-    plt.savefig(filename, dpi=300, format='svg')  # Save as SVG
-    plt.close()
-
-    print(f"Image saved as {filename}")
-
-# Parameters to view the whole Mandelbrot set
-xmin, xmax, ymin, ymax = -2.0, 1.0, -1.5, 1.5
-width, height = 4000, 4000  # Higher resolution for detailed view
-max_iter = 512
-
 
 if __name__ == '__main__':
  
     # Parameters for the Mandelbrot set
-    #xmin, xmax, ymin, ymax = -2,1,-1.5,1.5 # Zoomed-in region
     width, height = 2000, 2000  # High resolution
     max_iter = 256
 
@@ -104,4 +78,4 @@ if __name__ == '__main__':
     for xmin, xmax, ymin, ymax, name in regions:
         save_mandelbrot_image(xmin, xmax, ymin, ymax, width, height, max_iter, name)
 
-#save_mandelbrot_image(xmin, xmax, ymin, ymax, width, height, max_iter, "Full Mandelbrot Image") 
+
